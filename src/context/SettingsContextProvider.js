@@ -24,7 +24,8 @@ export const SettingsContextProvider = ( {children} ) => {
                 updateExecuting,
                 startAnimate,
                 startTimer,
-                pauseTimer
+                pauseTimer,
+                executing
             }}
         >
             {children}

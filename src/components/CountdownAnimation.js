@@ -3,7 +3,7 @@ import {useSettingsContext} from '../context/SettingsContextProvider';
 
 const CountdownAnimation = () => {
 
-    const {startAnimate} = useSettingsContext()
+    const {startAnimate, executing} = useSettingsContext()
 
     const children = ({ remainingTime }) => {
         const minutes = Math.floor(remainingTime / 60);
@@ -11,7 +11,25 @@ const CountdownAnimation = () => {
         return `${minutes}:${seconds}`;
     };
 
-    let timeInterval = 1;
+    let timeInterval = executing.work;
+    switch(executing.currentSubTimer){
+        case "work":
+            timeInterval = executing.work
+            console.log(timeInterval)
+            break;
+        case "short":
+            timeInterval = executing.short
+            break;
+        case "long":
+            timeInterval = executing.long
+            break;
+        default:
+            break
+    }
+   
+     // TODO 1: When the user changes the subTimer the number of seconds the timer has run
+     //       on the previous subTimer is applied to the current subTimer --> Add the key 
+     //       property to <CountdownCircleTimer/>
 
     return (
         <CountdownCircleTimer

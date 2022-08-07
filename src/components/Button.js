@@ -3,7 +3,7 @@ import React from 'react'
 const Button = (props) => {
   return (
     <button 
-        onClick={props.controlTimer}
+        onClick={props.callback}
     >
           {props.title}
     </button>

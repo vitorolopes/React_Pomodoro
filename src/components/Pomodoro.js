@@ -5,18 +5,30 @@ import {useSettingsContext} from '../context/SettingsContextProvider';
 
 const Pomodoro = () => {
 
-  const {startTimer, pauseTimer} = useSettingsContext();
+  const {startTimer, pauseTimer, updateExecuting, executing} = useSettingsContext();
+
+ 
+  const chooseWorkLongShort = (WorkLongShort) => { 
+     updateExecuting({
+      ...executing,
+      currentSubTimer: WorkLongShort
+     })
+  }
+
+  // TODO 2: Change the background color when a determined subTimer is active
 
   return (
     <div >
       
       <ul className='labels'>
-        <li><Button title="Work"/></li>
-        <li><Button title="Short Break"/></li>
-        <li><Button title="Long Break"/></li>
+        <li><Button title="Work" callback={() => chooseWorkLongShort("work")} /></li>
+        <li><Button title="Short Break" callback={() => chooseWorkLongShort("short")}/></li>
+        <li><Button title="Long Break" callback={() => chooseWorkLongShort("long")}/></li>
       </ul>
 
-        <Button title="Settings"/>
+        <Button title="Settings"
+                callback={() => updateExecuting({})}
+        />
 
       <div className="timer-container">
         <div className="time-wrapper">
@@ -27,10 +39,10 @@ const Pomodoro = () => {
       
       <div className="button-wrapper">
          <Button title="Start"
-                 controlTimer={startTimer}
+                 callback={startTimer}
          />
          <Button title="Pause"
-                 controlTimer={pauseTimer}
+                 callback={pauseTimer}
          />  
       </div>
      
