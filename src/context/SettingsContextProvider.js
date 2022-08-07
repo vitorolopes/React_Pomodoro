@@ -4,8 +4,7 @@ const SettingsContext = createContext();
 
 export const SettingsContextProvider = ( {children} ) => { 
 
-    const dummyValue = "This is a dummy value"
-
+  
     const [executing, setExecuting] = useState({})
 
     const updateExecuting = (newTimer) => {
@@ -15,7 +14,6 @@ export const SettingsContextProvider = ( {children} ) => {
     return(
         <SettingsContext.Provider
             value={{
-                dummyValue,
                 updateExecuting
             }}
         >

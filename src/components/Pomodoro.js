@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import CountdownAnimation from './CountdownAnimation'
 
 const Pomodoro = () => {
   return (
@@ -14,7 +15,9 @@ const Pomodoro = () => {
         <Button title="Settings"/>
 
       <div className="timer-container">
-        CLOCK
+        <div className="time-wrapper">
+          <CountdownAnimation/>
+        </div>
       </div>
 
       

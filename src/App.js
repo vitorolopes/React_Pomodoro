@@ -11,7 +11,7 @@ function App() {
       <h1>Pomodoro</h1>
       <small>Be productive the right way.</small>
       
-      {true ? <SetPomodoro/> : <Pomodoro/> }
+      {!true ? <SetPomodoro/> : <Pomodoro/> }
 
     </div> 
   );

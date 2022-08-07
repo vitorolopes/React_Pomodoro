@@ -4,9 +4,7 @@ import Button from './Button'
 
 const SetPomodoro = () => {
 
-  const {dummyValue, updateExecuting} = useSettingsContext()
-
-  console.log(dummyValue)
+  const { updateExecuting} = useSettingsContext()
 
   const [newTimer, setNewTimer] = useState({
                             work: 10,
@@ -55,8 +53,7 @@ const SetPomodoro = () => {
             </div>
           </div>
           <Button title="Set Timer"/>
-        </form>
-        
+        </form>       
       </div>
   )
 }
