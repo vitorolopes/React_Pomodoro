@@ -2,7 +2,11 @@ import React from 'react'
 
 const Button = (props) => {
   return (
-    <button>{props.title}</button>
+    <button 
+        onClick={props.controlTimer}
+    >
+          {props.title}
+    </button>
   )
 }
 

@@ -1,8 +1,12 @@
 import React from 'react'
 import Button from './Button'
 import CountdownAnimation from './CountdownAnimation'
+import {useSettingsContext} from '../context/SettingsContextProvider';
 
 const Pomodoro = () => {
+
+  const {startTimer, pauseTimer} = useSettingsContext();
+
   return (
     <div >
       
@@ -22,8 +26,12 @@ const Pomodoro = () => {
 
       
       <div className="button-wrapper">
-         <Button title="Start"/>
-         <Button title="Pause"/>  
+         <Button title="Start"
+                 controlTimer={startTimer}
+         />
+         <Button title="Pause"
+                 controlTimer={pauseTimer}
+         />  
       </div>
      
     </div>

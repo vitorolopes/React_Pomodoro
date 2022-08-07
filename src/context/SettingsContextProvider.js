@@ -4,17 +4,27 @@ const SettingsContext = createContext();
 
 export const SettingsContextProvider = ( {children} ) => { 
 
-  
     const [executing, setExecuting] = useState({})
+    const [startAnimate, setStartAnimate] = useState(false)
 
     const updateExecuting = (newTimer) => {
         setExecuting(newTimer)
     }
 
+    const startTimer = () => {
+        setStartAnimate(true)
+    }
+    const pauseTimer = () => {
+        setStartAnimate(false)
+    }
+
     return(
         <SettingsContext.Provider
             value={{
-                updateExecuting
+                updateExecuting,
+                startAnimate,
+                startTimer,
+                pauseTimer
             }}
         >
             {children}
