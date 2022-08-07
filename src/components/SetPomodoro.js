@@ -9,7 +9,8 @@ const SetPomodoro = () => {
   const [newTimer, setNewTimer] = useState({
                             work: 10,
                             short: 1,
-                            long: 2
+                            long: 2,
+                            currentSubTimer: "work"
   })
 
   const handleChange = (e) => {

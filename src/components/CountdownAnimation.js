@@ -1,7 +1,7 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import {useSettingsContext} from '../context/SettingsContextProvider';
 
-const CountdownAnimation = () => {
+const CountdownAnimation = ( { key }) => {
 
     const {startAnimate, executing} = useSettingsContext()
 
@@ -27,12 +27,17 @@ const CountdownAnimation = () => {
             break
     }
    
-     // TODO 1: When the user changes the subTimer the number of seconds the timer has run
-     //       on the previous subTimer is applied to the current subTimer --> Add the key 
-     //       property to <CountdownCircleTimer/>
+
 
     return (
         <CountdownCircleTimer
+            key={key} //. If you want to restart the timer when the duration changes
+        // then pass a new key prop to CountdownCircleTimer component and 
+        // the timer will start over with the new values provided.
+        // SEE https://codesandbox.io/s/tender-bogdan-qd35m?file=/src/index.js:1071-1101
+        // and https://www.npmjs.com/package/react-countdown-circle-timer 
+        // (Changing duration prop -->Restart timer at any given time)
+        
             isPlaying={startAnimate} // Boolean - Play or pause animation
             duration={ timeInterval * 60 } // Number - Countdown duration in seconds
             colors={[ 
